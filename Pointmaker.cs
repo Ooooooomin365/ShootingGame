@@ -15,7 +15,6 @@ public class Pointmaker : MonoBehaviour {
 	
 	private float delta = 0; //時間経過
 	
-	
 	// Use this for initialization
 	void Start () {
 	

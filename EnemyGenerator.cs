@@ -10,30 +10,39 @@ public class EnemyGenerator : MonoBehaviour {
 	
 	private float delta = 0; //時間経過
 	
-	public int point; //画面左上のポイント
+	private Pointmaker pointmaker; //Pointmakerスクリプト
+	
+	public int point1; //画面左上のポイント
 	
 	public GameObject PointController; //ポイントコントローラオブジェクトの定義
 
 	// Use this for initialization
 	void Start () {
-		point = PointController.GetComponent<Pointmaker>().point;
+		
+		pointmaker = PointController.GetComponent<Pointmaker>();
+		
+		point1 = pointmaker.point;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(point <= 150){
+		
+		point1 = pointmaker.point;
+		
+		if(point1 <= 150){
 		
 			firstround();
 			
-		}else if(point > 150 && point <= 270){
+		}else if(point1 > 150 && point1 <= 270){
 		
 			secondround();
 			
-		}else if(point > 270 && point <= 400){
+		}else if(point1 > 270 && point1 <= 400){
 			
 			thirdround();
 		
-		}else if(point > 400){
+		}else if(point1 > 400){
 			
 			fourthround();
 		}
@@ -41,6 +50,7 @@ public class EnemyGenerator : MonoBehaviour {
 	
 	//firstround～fourthroundメソッドは、ポイントの値によって敵の出現頻度を定義している
 	private void firstround(){
+		Debug.Log("1");
 		span = 6.0f;
 		this.delta += Time.deltaTime;
 		if(this.delta > this.span){
@@ -56,6 +66,7 @@ public class EnemyGenerator : MonoBehaviour {
 	}
 	
 	private void secondround(){
+		Debug.Log("2");
 		span = 4.0f;
 		this.delta += Time.deltaTime;
 		if(this.delta > this.span){
@@ -71,6 +82,7 @@ public class EnemyGenerator : MonoBehaviour {
 	}
 	
 	private void thirdround(){
+		Debug.Log("3");
 		span = 2.0f;
 		this.delta += Time.deltaTime;
 		if(this.delta > this.span){
@@ -86,6 +98,7 @@ public class EnemyGenerator : MonoBehaviour {
 	}
 	
 	private void fourthround(){
+		Debug.Log("4");
 		span = 1.0f;
 		this.delta += Time.deltaTime;
 		if(this.delta > this.span){
